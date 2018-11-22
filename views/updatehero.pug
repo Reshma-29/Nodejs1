@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+
+  form(action='updateData' method='get')
+    .row
+     .input-field.col.s6
+      label(for='firstName') Super Hero
+      input#superhero.validate(type='text', name='superhero')
+    .row
+     .input-field.col.s6
+      label(for='publisher') Publisher
+      input#publisher.validate(type='text', name='publisher')
+   
+    .row
+     .input-field.col.s6
+      label(for='alter_ego') Alter_ego 
+      input#alter_ego.validate(type='text', name='alter_ego')
+    .row
+     .input-field.col.s6
+      label(for='first_appearance') First Appearance 
+      input#first_appearance.validate(type='text', name='first_appearance')
+    .row
+     .input-field.col.s6
+      label(for='characters') Characters 
+      input#characters.validate(type='text', name='characters')
+    
+    .row
+     button.btn(type='submit') Go

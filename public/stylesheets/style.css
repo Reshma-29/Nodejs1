@@ -1,0 +1,37 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+ // background-image : url('');
+  background-repeat:  no-repeat;
+  background-size: cover;
+}
+
+a {
+  color: #00B7FF;
+}
+ .bg-3 { 
+      background-color: #ffffff;
+      color: #555555;
+  }
+  
+
+p{
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    color: deep-orange ;
+}
+
+h4 {
+    
+    font-style: italic;
+}
+h4{
+    font-weight: bold;
+}
+
+h1{
+	text-align: center;
+}
+
+
+

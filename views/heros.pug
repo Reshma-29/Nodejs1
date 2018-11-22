@@ -1,0 +1,21 @@
+extends layout
+
+block content
+
+	each val in data
+		.row
+			.col-6
+				.card.brown
+					.card-content.white-text
+						.card-title
+							h4 #{val.superhero}
+								.card.pink 
+									p Id: #{val.id}
+									p Real Name: #{val.alter_ego}
+									p Publisher: #{val.publisher}
+
+					.card-action
+						a(href='deleteHero?id='+val.id) Delete
+						a(href='updateData?id='+val.id) update
+						a(href='viewHero?id='+val.id) View
+							
