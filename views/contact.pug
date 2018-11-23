@@ -8,14 +8,14 @@ block content
 				.card.brown
 					.card-content.white-text
 						.card-title
-							h4 #{val.superhero}
+							h4 #{val.name}
 								.card.pink 
-									p Id: #{val.id}
-									p Real Name: #{val.alter_ego}
-									p Publisher: #{val.publisher}
+									p Id: #{val._id}
+									p Name: #{val.name}
+									p PhoneNo: #{val.phoneNo}
 
 					.card-action
-						a(href='deleteHero?id='+val.id) Delete
+						a(href='deleteData?id='+val._id) Delete
 						a(href='updateData?id='+val.id) update
 						a(href='viewHero?id='+val.id) View
 							
