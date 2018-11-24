@@ -15,7 +15,7 @@ const ObjectId = Schema.ObjectId;
 
 
 const contact = new Schema({
-	id: ObjectId,
+	//id: ObjectId,
 	name: String,
 	phoneNo: String
 });
@@ -84,10 +84,10 @@ Contact.deleteContact = function(newData){
 
 		// //Set up default mongoose connection
 		const connection = mongoose.connect('mongodb://127.0.0.1:27017/myDB');
-		console.log(connection);
+		console.log(`${newData.name}`);
+		// console.log(connection);
 
-
-		myModel.find({name: `${newData.name}`},function(err,contact){
+		myModel.findOneAndRemove({name:`${newData.name}`},function(err){
 			if(err) {
 				console.log(err);
 				console.log('ERR :: fetching data from database..');
@@ -95,16 +95,44 @@ Contact.deleteContact = function(newData){
 			}
 			else {
 
-				//console.log(result);
 				console.log(contact);
-				//console.log('contact saved');
-
 				resolve(contact);
 
 			}
-		
-		       
-        contact.remove({},function(err,contact){
+			    
+      	});
+    });	
+}
+
+//update
+Contact.updateContact= function(newData){
+	return new Promise(function (resolve, reject){
+		// //Set up default mongoose connection
+		const connection = mongoose.connect('mongodb://127.0.0.1:27017/myDB');
+
+		myModel.findOneAndUpdate({ _id: `${newData._id}` },{ name: `${newData.name}` }, function(err, contact) {
+		  if (err) {
+				console.log(err);
+				console.log('ERR :: fetching data from database..');
+				reject();
+			}
+			else {
+	
+				//console.log('con.......'+ contact);
+				resolve(contact);
+			}
+		});
+	});
+}
+
+
+Contact.viewContact = function(newData){
+	return new Promise(function (resolve, reject){
+
+		// //Set up default mongoose connection
+		const connection = mongoose.connect('mongodb://127.0.0.1:27017/myDB');
+		console.log(connection);
+		myModel.find({_id: `${newData._id}`},function(err,contact){
 			if(err) {
 				console.log(err);
 				console.log('ERR :: fetching data from database..');
@@ -113,17 +141,14 @@ Contact.deleteContact = function(newData){
 			else {
 				//console.log(result);
 				console.log(contact);
-				//console.log('contact saved');
 
 				resolve(contact);
 			}
 
 		});
 
-       
-
 	});
-});	
+		
 }
 
 module.exports = Contact;
